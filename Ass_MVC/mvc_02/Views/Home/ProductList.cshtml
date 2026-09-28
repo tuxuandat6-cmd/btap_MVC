@@ -1,0 +1,29 @@
+﻿@model IEnumerable<mvc_02.Models.Product>
+
+@{
+    ViewBag.Title = "Danh Sách Sản Phẩm";
+    Layout = null;
+}
+
+<h2>Danh Sách Sản Phẩm</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th>Mã SP (ID)</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Giá Bán (VNĐ)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Sử dụng vòng lặp foreach để duyệt qua từng sản phẩm *@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center;">@item.Id</td>
+                <td>@item.Name</td>
+                <td style="text-align: right;">@item.Price.ToString("N0") VNĐ</td>
+            </tr>
+        }
+    </tbody>
+</table>

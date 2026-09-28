@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Kiểm tra cuối tuần";
+
+    // Lấy ngày hiện tại
+    DateTime today = DateTime.Now;
+
+    // Kiểm tra nếu là Thứ Bảy hoặc Chủ Nhật
+    bool isWeekend = today.DayOfWeek == DayOfWeek.Saturday || today.DayOfWeek == DayOfWeek.Sunday;
+}
+
+<h2>Kiểm Tra Ngày Trong Tuần</h2>
+
+<p>Hôm nay là: <strong>@today.ToString("dd/MM/yyyy") (@today.DayOfWeek)</strong></p>
+
+@if (isWeekend)
+{
+    <div style="color: green; font-size: 18px; font-weight: bold;">
+        Hôm nay là cuối tuần!
+    </div>
+}
+else
+{
+    <div style="color: blue; font-size: 18px;">
+        Hôm nay là ngày trong tuần (ngày làm việc).
+    </div>
+}
